@@ -105,8 +105,8 @@ ul.clean li{margin:4px 0}
     <div class="liveConn" id="connection-status">
       <div class="liveConnMeta">
         <div class="liveStatus"><span class="liveDot online" id="liveDot"></span><span id="liveStatusText">伺服器線上中（Quick Tunnel）</span></div>
-        <div class="liveUrl" id="liveUrlText">https://translate-viking-thorough-bacon.trycloudflare.com</div>
-        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-27T15:18:57+08:00</div>
+        <div class="liveUrl" id="liveUrlText">點擊「🎮 立即進入遊戲」即可連線遊玩</div>
+        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-27T15:26:05+08:00</div>
       </div>
       <div class="liveActions">
         <a class="liveBtn primary " id="livePlayBtn" href="https://translate-viking-thorough-bacon.trycloudflare.com" target="_blank" rel="noopener">🎮 立即進入遊戲</a>
@@ -509,7 +509,7 @@ ul.clean li{margin:4px 0}
     currentUrl = online ? String(data.url) : '';
     if (dot) dot.classList.toggle('online', online);
     if (statusText) statusText.textContent = online ? '伺服器線上中（Quick Tunnel）' : '伺服器目前離線中';
-    if (urlText) urlText.textContent = online ? currentUrl : '暫無公開連線網址，請稍後再重新整理查看';
+    if (urlText) urlText.textContent = online ? '點擊「🎮 立即進入遊戲」即可連線遊玩' : '伺服器目前尚未開放，請稍後再重新整理查看';
     if (updatedAt && data && data.updatedAt) updatedAt.textContent = '最後更新：' + data.updatedAt;
     if (playBtn) {
       playBtn.href = online ? currentUrl : '#';
