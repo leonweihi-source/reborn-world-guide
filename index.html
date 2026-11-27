@@ -93,7 +93,7 @@ ul.clean li{margin:4px 0}
       <a href="#social">社交與城市</a>
       <a href="#dungeon">地下城故事</a>
       <a href="#commands">指令速查</a>
-      <a class="primary" id="topPlayBtn" href="https://clients-sheet-daughter-direction.trycloudflare.com" target="_blank" rel="noopener">🎮 進入遊戲</a>
+      <a class="primary" id="topPlayBtn" href="#connection-status" target="_blank" rel="noopener">⏸️ 目前離線</a>
     </nav>
   </div>
 </header>
@@ -104,13 +104,13 @@ ul.clean li{margin:4px 0}
     <p>融合生存建設、文明科技演進、玩家社交城邦與地下城探險的繁體中文 MUD 世界。無論透過瀏覽器客戶端或 Telnet TCP（埠 4000）皆可使用中英文指令遊玩。</p>
     <div class="liveConn" id="connection-status">
       <div class="liveConnMeta">
-        <div class="liveStatus"><span class="liveDot online" id="liveDot"></span><span id="liveStatusText">伺服器線上中（Quick Tunnel）</span></div>
-        <div class="liveUrl" id="liveUrlText">https://clients-sheet-daughter-direction.trycloudflare.com</div>
-        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-27T15:00:41+08:00</div>
+        <div class="liveStatus"><span class="liveDot " id="liveDot"></span><span id="liveStatusText">伺服器目前離線中</span></div>
+        <div class="liveUrl" id="liveUrlText">暫無公開連線網址，請稍後再重新整理查看</div>
+        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-27T15:04:29+08:00</div>
       </div>
       <div class="liveActions">
-        <a class="liveBtn primary " id="livePlayBtn" href="https://clients-sheet-daughter-direction.trycloudflare.com" target="_blank" rel="noopener">🎮 立即進入遊戲</a>
-        <button class="liveBtn" id="liveCopyBtn" type="button" >📋 複製網址</button>
+        <a class="liveBtn primary disabled" id="livePlayBtn" href="#" target="_blank" rel="noopener">🎮 立即進入遊戲</a>
+        <button class="liveBtn" id="liveCopyBtn" type="button" disabled>📋 複製網址</button>
       </div>
     </div>
   </section>
@@ -502,7 +502,7 @@ ul.clean li{margin:4px 0}
   var playBtn = document.getElementById('livePlayBtn');
   var topPlayBtn = document.getElementById('topPlayBtn');
   var copyBtn = document.getElementById('liveCopyBtn');
-  var currentUrl = "https://clients-sheet-daughter-direction.trycloudflare.com";
+  var currentUrl = "";
 
   function applyStatus(data){
     var online = Boolean(data && data.online && data.url);
