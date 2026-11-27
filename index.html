@@ -106,7 +106,7 @@ ul.clean li{margin:4px 0}
       <div class="liveConnMeta">
         <div class="liveStatus"><span class="liveDot online" id="liveDot"></span><span id="liveStatusText">伺服器線上中（Quick Tunnel）</span></div>
         <div class="liveUrl" id="liveUrlText">點擊「🎮 立即進入遊戲」即可連線遊玩</div>
-        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-27T21:47:02+08:00</div>
+        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-28T00:09:28+08:00</div>
       </div>
       <div class="liveActions">
         <a class="liveBtn primary " id="livePlayBtn" href="https://riders-customers-geek-democrat.trycloudflare.com" target="_blank" rel="noopener">🎮 立即進入遊戲</a>
@@ -134,13 +134,14 @@ ul.clean li{margin:4px 0}
 
     <h3>網頁客戶端操作亮點</h3>
     <ul class="clean">
-      <li><strong>頂部即時 HUD</strong>：顯示等級、時代（農業／工業／知識）、HP、ATK、DEF、AGI（敏捷）、貨幣、所在地與佔領地塊數。</li>
+      <li><strong>頂部即時 HUD</strong>：精簡顯示等級、職業／時代、HP、飽腹度、負重、貨幣、領土數量、世界時間與即時狀態提醒。</li>
+      <li><strong>即時場景視圖（Canvas）</strong>：繪製季節天氣粒子與日夜光影，支援直接點擊出口（含地下城 <code>▲上層</code> / <code>▼下層</code>）、資源、怪物（含血條）、寶箱、農田作物（澆水／收成）與傳送陣，開戰或切磋時上方顯示雙方對峙血條。</li>
       <li><strong>右側互動側欄</strong>：
         <ul class="clean">
           <li><strong>周圍戰術小地圖／地下城節點圖</strong>：地面顯示 5×5 生態區色彩格（含 ✦ 資源、⚔ 怪物、📦 寶箱、◆ 己方領地、◇ 他方領地、! 世界事件圖示，點擊相鄰格移動）；進入無座標的古老遺跡地下城後，自動切換為「地下城節點圖」，標示怪物 ⚔️、Boss ☠️、寶箱 📦 與可點擊移動的相鄰節點。</li>
           <li><strong>隊伍狀態列</strong>：一鍵建立隊伍、接受邀請、查看隊友位置／HP 與離隊。</li>
           <li><strong>同房玩家</strong>：即時顯示同房玩家，提供「邀請組隊」、「切磋（非安全區）」與一鍵帶入 <code>give</code> 贈與指令。</li>
-          <li><strong>房間互動與戰鬥面板</strong>：平時顯示打怪／採集／商人／開寶箱／小屋休息按鈕；開戰或進入 <code>duel</code> 切磋後自動展開重擊、防禦、治療術、喝藥與逃走（附即時成功率）面板。</li>
+          <li><strong>房間互動與戰鬥面板</strong>：平時顯示打怪／採集／商人／開寶箱／小屋休息／農田澆水與收成／傳送陣按鈕；開戰或進入 <code>duel</code> 切磋後自動展開重擊、防禦、治療術、喝藥與逃走（附即時成功率）面板。</li>
         </ul>
       </li>
       <li><strong>終端快捷鍵</strong>：輸入框支援 <code>Tab</code> 智慧補全（支援指令名、第 2 參數與第 3 參數）、<code>↑</code> / <code>↓</code> 歷史紀錄、<code>Ctrl+L</code> 清除螢幕。</li>
@@ -166,6 +167,25 @@ ul.clean li{margin:4px 0}
         <tr><td>首次交易（first_trade）</td><td>無</td><td>向商人完成 1 次買賣</td><td>15 貨幣</td></tr>
         <tr><td>首次狩獵（first_hunt）</td><td>無</td><td>擊敗 1 隻敵對生物</td><td>25 貨幣、礦石 x1</td></tr>
         <tr><td>遺跡征服者（dungeon_clear）</td><td>首次狩獵</td><td>深入古老遺跡擊敗【Boss】古代魔像</td><td>120 貨幣、精鐵劍 x1</td></tr>
+        <tr><td>四季農夫（first_harvest）</td><td>首次建造</td><td>在農田種植並完成 1 次收成</td><td>45 貨幣、烈陽瓜種子 x2</td></tr>
+        <tr><td>空間旅者（first_portal）</td><td>首次升級</td><td>建造傳送陣並完成 1 次傳送</td><td>80 貨幣、魔晶 x1</td></tr>
+        <tr><td>深淵征服者（abyss_clear）</td><td>遺跡征服者</td><td>深入遺跡深層擊敗【深淵 Boss】魔晶領主·阿薩托斯</td><td>300 貨幣、深淵核心 x1</td></tr>
+      </tbody>
+    </table>
+
+    <h3>成就與稱號系統（<code>achievements</code> / <code>title</code>）</h3>
+    <p>達成特定里程碑將自動解鎖成就、發放貨幣獎勵並解鎖專屬稱號；使用 <code>title &lt;稱號&gt;</code> 即可佩戴並顯示於 <code>status</code>。</p>
+    <table>
+      <thead><tr><th>成就名稱</th><th>達成條件</th><th>解鎖稱號</th><th>獎勵</th></tr></thead>
+      <tbody>
+        <tr><td>開拓先鋒</td><td>佔領至少 1 塊領地</td><td>【開拓者】</td><td>30 貨幣</td></tr>
+        <tr><td>莊園領主</td><td>同時擁有 3 塊以上領地</td><td>【領主】</td><td>80 貨幣</td></tr>
+        <tr><td>荒野獵手</td><td>累計擊敗 5 隻敵對生物</td><td>【獵手】</td><td>50 貨幣</td></tr>
+        <tr><td>首領討伐者</td><td>擊敗任意地下城 Boss</td><td>【破曉勇者】</td><td>120 貨幣</td></tr>
+        <tr><td>深淵征服者</td><td>完成「深淵征服者」任務</td><td>【深淵征服者】</td><td>250 貨幣</td></tr>
+        <tr><td>四季農匠</td><td>完成 1 次以上農田收成</td><td>【四季農夫】</td><td>40 貨幣</td></tr>
+        <tr><td>星界旅者</td><td>透過傳送陣移動 1 次以上</td><td>【星界旅者】</td><td>60 貨幣</td></tr>
+        <tr><td>歷練強者</td><td>角色等級達到 Lv.5</td><td>【歷練者】</td><td>100 貨幣</td></tr>
       </tbody>
     </table>
   </section>
@@ -174,20 +194,29 @@ ul.clean li{margin:4px 0}
     <h2>二、建築、經濟與文明科技樹</h2>
     <div class="grid2">
       <div>
-        <h3>7 種領地建築</h3>
+        <h3>8 種領地建築</h3>
         <table>
           <thead><tr><th>建築（別名）</th><th>建造成本</th><th>功能與效果</th></tr></thead>
           <tbody>
             <tr><td><code>hut</code> 小屋</td><td>木2 幣20</td><td>可用 <code>rest</code> 完全恢復 HP；每級增加 +2 工人名額</td></tr>
-            <tr><td><code>farm</code> 農田</td><td>木2 糧1 幣30</td><td>隨 tick 週期自動產出糧食</td></tr>
+            <tr><td><code>farm</code> 農田</td><td>木2 糧1 幣30</td><td>隨 tick 自動產糧，並支援 <code>plant</code>／<code>water</code>／<code>harvest</code> 四季作物種植（依農田等級、澆水與當季加成提升產量）</td></tr>
             <tr><td><code>workshop</code> 工坊</td><td>木3 礦1 幣40</td><td>解鎖工業時代前置建築之一；優先消耗同地塊倉庫木材產出木板（背包會保留至少 6 個木材）</td></tr>
             <tr><td><code>warehouse</code> 倉庫</td><td>木4 幣50</td><td>使用 <code>deposit</code> / <code>withdraw</code> 存取物品</td></tr>
             <tr><td><code>barracks</code> 兵營</td><td>木3 糧1 礦2 幣60</td><td>所在房間防禦 +Lv、強化巡邏守衛工人傷害</td></tr>
             <tr><td><code>market</code> 市集</td><td>木3 糧1 礦1 幣80</td><td>可自訂交易稅率、上架玩家商品（<code>listitem</code>）、提取稅收</td></tr>
             <tr><td><code>lab</code> 研究所</td><td>木4 糧1 礦3 幣100</td><td>研發工業時代與知識時代科技的關鍵設施</td></tr>
+            <tr><td><code>portal</code> 傳送陣</td><td>木3 礦3 幣120</td><td>建立領地傳送網絡，使用 <code>portal</code> 在自己的傳送陣間快速移動</td></tr>
           </tbody>
         </table>
         <div class="tip">建築施工預設需時 30 秒，之後每 60 秒收取維護費（建造成本貨幣的 10%）；資金不足時會暫時「停擺」並於補齊貨幣後自動恢復。可用 <code>demolish</code>（退還 50% 成本）或 <code>replace</code> 替換建築。</div>
+        <div class="card" style="margin-top:10px">
+          <h4>🌱 季節農業與套裝共鳴</h4>
+          <ul class="clean">
+            <li><strong>四季播種（<code>plant</code> / <code>water</code> / <code>harvest</code>）</strong>：向雜貨商購買春麥、烈陽瓜、金秋南瓜、霜雪蘿蔔種子於農田種植；當季種植成長加速 30%、澆水可再縮短剩餘時間 35% 並增加收成，成熟後可烹煮為四季增益料理。</li>
+            <li><strong>魔晶共鳴套裝（<code>crystal_set</code>）</strong>：魔晶劍＋魔晶甲＋魔晶鶴嘴鎬（2 件 ATK +4／DEF +3；3 件 ATK +8／DEF +6／AGI +3）。</li>
+            <li><strong>深淵行者套裝（<code>abyss_set</code>）</strong>：深淵戰刃＋深淵戰甲＋深淵羅盤（2 件 ATK +6／DEF +5／AGI +2；3 件 ATK +12／DEF +10／AGI +5）。</li>
+          </ul>
+        </div>
       </div>
       <div>
         <h3>時代科技樹（<code>tech</code> / <code>research</code>）</h3>
@@ -218,8 +247,15 @@ ul.clean li{margin:4px 0}
             <tr><td><code>steel</code> 精鐵 [工業]</td><td>高階鍛造材料</td><td>礦石 x2 + 木材 x1</td></tr>
             <tr><td><code>steel_sword</code> 精鐵劍 [工業]</td><td>武器：ATK +8</td><td>精鐵 x2 + 木板 x1</td></tr>
             <tr><td><code>steel_armor</code> 精鐵護甲 [工業]</td><td>護甲：DEF +6</td><td>精鐵 x2 + 礦石 x2</td></tr>
-            <tr><td><code>crystal_blade</code> 魔晶劍 [知識]</td><td>武器：ATK +13、AGI +2</td><td>精鐵劍 x1 + 魔晶 x2（可直接以穿戴中的精鐵劍升級）</td></tr>
-            <tr><td><code>crystal_armor</code> 魔晶甲 [知識]</td><td>護甲：DEF +10、AGI +1</td><td>精鐵護甲 x1 + 魔晶 x2（可直接以穿戴中的精鐵護甲升級）</td></tr>
+            <tr><td><code>crystal_blade</code> 魔晶劍 [知識]</td><td>武器：ATK +13、AGI +2（魔晶套裝）</td><td>精鐵劍 x1 + 魔晶 x2（可直接以穿戴中的精鐵劍升級）</td></tr>
+            <tr><td><code>crystal_armor</code> 魔晶甲 [知識]</td><td>護甲：DEF +10、AGI +1（魔晶套裝）</td><td>精鐵護甲 x1 + 魔晶 x2（可直接以穿戴中的精鐵護甲升級）</td></tr>
+            <tr><td><code>spring_bread</code> 春麥麵包</td><td>料理：HP +40、飽腹 +65、採集 +1（10分）</td><td>春麥 x2 + 糧食 x1</td></tr>
+            <tr><td><code>melon_sorbet</code> 烈陽冰沙</td><td>料理：HP +45、飽腹 +40、AGI +3（10分）</td><td>烈陽瓜 x1 + 草藥 x1</td></tr>
+            <tr><td><code>pumpkin_soup</code> 金秋南瓜濃湯</td><td>料理：HP +50、飽腹 +85、ATK +4、DEF +2</td><td>金秋南瓜 x1 + 糧食 x1</td></tr>
+            <tr><td><code>frost_stew</code> 霜雪燉湯</td><td>料理：HP +60、飽腹 +60、DEF +5（10分）</td><td>霜雪蘿蔔 x1 + 草藥 x1</td></tr>
+            <tr><td><code>abyss_blade</code> 深淵戰刃 [知識]</td><td>武器：傷害 +14~24、AGI +3（深淵套裝）</td><td>魔晶劍 x1 + 深淵核心 x2</td></tr>
+            <tr><td><code>abyss_armor</code> 深淵戰甲 [知識]</td><td>護甲：DEF +15、AGI +2（深淵套裝）</td><td>魔晶甲 x1 + 深淵核心 x2</td></tr>
+            <tr><td><code>abyss_compass</code> 深淵羅盤 [知識]</td><td>工具：採集 +3、DEF +3、AGI +3（深淵套裝）</td><td>魔晶 x2 + 深淵核心 x1</td></tr>
           </tbody>
         </table>
       </div>
@@ -308,6 +344,13 @@ ul.clean li{margin:4px 0}
           <span class="dArrow">──(down)──▶</span>
           <div class="dBox boss"><strong>遺跡深處·古代核心室（ruins_boss）</strong><br/>危險度 6 · ☠️【Boss】古代魔像 Lv.7 · 📦核心寶箱（魔晶x2、幣100）</div>
         </div>
+        <div class="dRow">
+          <div class="dBox" style="border-color:var(--purple)"><strong>遺跡深層·深淵前哨（ruins_abyss_gate）</strong><br/>危險度 7 · 深淵哨兵 Lv.8（由核心室 down 進入）</div>
+          <span class="dArrow">──(east)──▶</span>
+          <div class="dBox" style="border-color:var(--purple)"><strong>遺跡深層·黑曜石迴廊（ruins_obsidian_hall）</strong><br/>危險度 8 · 黑曜石騎士 Lv.9 · 📦陷阱寶箱（深淵核心x1、幣140）</div>
+          <span class="dArrow">──(down)──▶</span>
+          <div class="dBox boss"><strong>深淵核心·魔晶王座（ruins_abyss_throne）</strong><br/>危險度 9 · ☠️【深淵 Boss】魔晶領主·阿薩托斯 Lv.10 · 📦王座寶箱（深淵核心x2、幣240）</div>
+        </div>
       </div>
     </div>
 
@@ -347,6 +390,33 @@ ul.clean li{margin:4px 0}
         </div>
         <p class="lore">「唯有重塑秩序之人，方得動用核心之力。」——矗立於最深處石室中央的百噸巨像，是舊文明在科技與奇幻交會巔峰時鑄造的最終試煉者。它體內運轉著純淨魔晶爐心，雙拳兼具粉碎精鐵的蠻力與核心洩漏的劇毒輻射（35% 機率附加中毒）。當它感應到地表再次出現建立工坊、研究時代的新生靈魂時，雙眼重新亮起蒼藍光芒——它不是為了毀滅，而是為了檢驗新世界的勇者是否具備承接知識時代的資格。</p>
         <div class="tip">攻略建議：Boss 逃走率額外 -15% 且血厚攻高。建議先解鎖工業時代鍛造 <strong>精鐵劍</strong> 與 <strong>精鐵護甲</strong>，或組成 2 人以上隊伍（<code>party</code>）合力討伐，善用 <code>slash</code> 流血、<code>defend</code> 減傷與乾糧／草藥！擊敗可推進主線任務「遺跡征服者」獲得額外 120 貨幣與精鐵劍。</div>
+      </article>
+
+      <article class="card">
+        <h4>5. 深淵哨兵 <span class="badge dungeon">遺跡深層·深淵前哨</span></h4>
+        <div class="statsRow">
+          <span class="statPill">Lv.8</span><span class="statPill">HP 290</span><span class="statPill">ATK 31</span><span class="statPill">DEF 9</span><span class="statPill">AGI 15</span><span class="statPill">掉落：魔晶x2、精鐵x2、75幣</span>
+        </div>
+        <p class="lore">「黑曜長戟所指，凡塵止步。」——守望古代核心室下方深淵門戶的精銳哨兵，盔甲浸潤高密度魔晶餘輝，會以長戟與震盪盾擊試探踏入深淵的挑戰者。</p>
+        <div class="tip">攻略建議：建議至少湊齊 <strong>魔晶套裝（2～3 件）</strong> 觸發共鳴加成再往下層推進，並攜帶 <code>elixir</code> 或 <code>frost_stew</code> 提高防禦與續航。</div>
+      </article>
+
+      <article class="card">
+        <h4>6. 黑曜石騎士 <span class="badge dungeon">遺跡深層·黑曜石迴廊</span></h4>
+        <div class="statsRow">
+          <span class="statPill">Lv.9</span><span class="statPill">HP 330</span><span class="statPill">ATK 34</span><span class="statPill">DEF 11</span><span class="statPill">AGI 16</span><span class="statPill">掉落：魔晶x2、深淵核心x1(45%)、95幣</span>
+        </div>
+        <p class="lore">「重鎧之下，唯餘深淵回響。」——曾護衛先民王座的禁衛騎士團殘影，手持黑曜大劍劈出撕裂空氣的劍氣，守護迴廊盡頭那只蘊含深淵核心的陷阱寶箱。</p>
+        <div class="tip">攻略建議：防禦高達 11 且攻擊兇猛，善用職業 Lv.3+ 主動技（<code>special</code>）與 <code>defend</code> 護盾反制。</div>
+      </article>
+
+      <article class="card">
+        <h4>7. 【深淵 Boss】魔晶領主·阿薩托斯 <span class="badge boss">深淵核心·魔晶王座</span></h4>
+        <div class="statsRow">
+          <span class="statPill">Lv.10</span><span class="statPill">HP 480</span><span class="statPill">ATK 38</span><span class="statPill">DEF 12</span><span class="statPill">AGI 17</span><span class="statPill">掉落：深淵核心x2、魔晶x3、220幣</span>
+        </div>
+        <p class="lore">「萬象之源亦為深淵之始。」——沉眠於遺跡最深處王座上的結晶君主，具備<strong>多階段首領戰機制</strong>：HP 降至 <strong>65% 以下</strong> 時會展開結晶護甲（DEF +4）；HP 降至 <strong>30% 以下</strong> 時會進入深淵狂暴（ATK +6）並頻頻釋放席捲全場的深淵震盪波！</p>
+        <div class="tip">攻略建議：強烈推薦組隊（<code>party</code>）並裝備滿 3 件魔晶套裝、備妥 <code>elixir</code> 與季節料理後挑戰；擊敗可完成「深淵征服者」任務取得 300 貨幣與深淵核心，進而鍛造頂級 <strong>深淵行者套裝</strong>！</div>
       </article>
     </div>
 
@@ -410,11 +480,13 @@ ul.clean li{margin:4px 0}
 
         <tr data-cat="build"><td><code>claim</code></td><td><code>佔領</code></td><td><code>claim</code></td><td>佔領目前可開墾地塊（上限 <code>1+等級</code>；靜態 NPC/商人房不可佔領）</td></tr>
         <tr data-cat="build"><td><code>plots</code></td><td><code>領地</code> / <code>我的地塊</code></td><td><code>plots</code></td><td>查看名下所有已佔領地塊與建築狀態</td></tr>
-        <tr data-cat="build"><td><code>build</code></td><td><code>建造</code></td><td><code>build &lt;建築類型&gt;</code></td><td>在名下地塊建造（支援 <code>小屋/工坊/倉庫/農田/兵營/市集/研究所</code>，每格最多 5 種）</td></tr>
+        <tr data-cat="build"><td><code>build</code></td><td><code>建造</code></td><td><code>build &lt;建築類型&gt;</code></td><td>在名下地塊建造（支援 <code>小屋/工坊/倉庫/農田/兵營/市集/研究所/傳送陣</code>，每格最多 5 種）</td></tr>
         <tr data-cat="build"><td><code>upgrade</code></td><td><code>升級</code></td><td><code>upgrade [建築類型]</code></td><td>升級建築等級以提升產出或效果</td></tr>
         <tr data-cat="build"><td><code>demolish</code></td><td><code>拆除</code> / <code>拆建築</code></td><td><code>demolish &lt;建築類型&gt;</code></td><td>拆除建築並退還 50% 成本（倉庫需先清空）</td></tr>
         <tr data-cat="build"><td><code>replace</code></td><td><code>替換</code> / <code>改建</code></td><td><code>replace &lt;舊&gt; &lt;新&gt;</code></td><td>原地拆舊建新（該格僅 1 棟時可簡寫為 <code>replace &lt;新建築&gt;</code>）</td></tr>
         <tr data-cat="build"><td><code>rest</code></td><td><code>休息</code></td><td><code>rest</code></td><td>站在自己已完工的小屋地塊恢復至滿 HP</td></tr>
+        <tr data-cat="build"><td><code>plant</code> / <code>water</code> / <code>harvest</code></td><td><code>種植</code> / <code>澆水</code> / <code>收成</code></td><td><code>plant [作物]</code> / <code>water</code> / <code>harvest</code></td><td>在自己的農田播種季節作物、澆水加速成長並採收作物（當季種植加速 30%）</td></tr>
+        <tr data-cat="build"><td><code>portal</code></td><td><code>傳送</code> / <code>傳送陣</code></td><td><code>portal [編號|房間名]</code></td><td>列出名下已完工的傳送陣節點並快速傳送往返</td></tr>
         <tr data-cat="build"><td><code>storage</code></td><td><code>倉庫</code></td><td><code>storage</code></td><td>查看目前地塊倉庫存貨</td></tr>
         <tr data-cat="build"><td><code>deposit</code> / <code>withdraw</code></td><td><code>存放</code> / <code>取出</code></td><td><code>deposit &lt;物品&gt; &lt;數量&gt;</code></td><td>將背包物品存入或取出自己地塊的倉庫</td></tr>
 
@@ -450,6 +522,7 @@ ul.clean li{margin:4px 0}
         <tr data-cat="combat"><td><code>flee</code></td><td><code>run</code> / <code>escape</code> / <code>逃走</code> / <code>逃跑</code> / <code>撤退</code></td><td><code>flee</code></td><td>依雙方 AGI 與等級逃離 PvE 戰鬥，或於切磋中直接認輸結束</td></tr>
         <tr data-cat="combat"><td><code>duel</code></td><td><code>決鬥</code> / <code>切磋</code></td><td><code>duel &lt;玩家|accept|forfeit&gt;</code></td><td>非安全區向玩家發起互動式切磋、接受挑戰或認輸</td></tr>
         <tr data-cat="combat"><td><code>events</code> / <code>quests</code></td><td><code>事件</code> / <code>任務</code></td><td><code>events</code> / <code>quests</code></td><td>查看目前世界進行中事件情報（涵蓋荒野、城市建設、地下城與外域事件）與個人任務進度</td></tr>
+        <tr data-cat="combat"><td><code>achievements</code> / <code>title</code></td><td><code>成就</code> / <code>稱號</code> / <code>佩戴稱號</code></td><td><code>achievements</code> / <code>title &lt;稱號|clear&gt;</code></td><td>查看成就達成進度、已解鎖稱號並佩戴或卸下稱號</td></tr>
 
         <tr data-cat="social"><td><code>say</code> / <code>chat</code> / <code>me</code></td><td><code>'</code> / <code>說</code> / <code>世界</code> / <code>emote</code></td><td><code>say &lt;話&gt;</code> / <code>chat &lt;話&gt;</code></td><td>房間發言、全服世界頻道或發送動作表情</td></tr>
         <tr data-cat="social"><td><code>give</code></td><td><code>贈與</code> / <code>給</code></td><td><code>give &lt;玩家&gt; &lt;物品|currency&gt; &lt;數量&gt;</code></td><td>贈與同房間玩家物品或貨幣</td></tr>
