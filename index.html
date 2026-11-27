@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#6ec1a5"/>
+<title>重生世界 Reborn World｜玩法指南・指令手冊・地下城怪物故事</title>
+<style>
+:root{--bg:#0d1319;--panel:#151f29;--card:#1a2634;--text:#e7edf3;--muted:#9fb0c0;--accent:#6ec1a5;--border:#2a3a48;--danger:#e06c75;--warn:#e5c07b;--ok:#98c379;--info:#61afef;--purple:#c678dd}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;padding:0;font-family:"Noto Sans TC",ui-sans-serif,system-ui,sans-serif;background:linear-gradient(180deg,#0b1117,#141d27);color:var(--text);line-height:1.65;font-size:15px}
+code,pre{font-family:ui-monospace,Consolas,"Noto Sans TC",monospace}
+code{background:#0e161f;border:1px solid #243445;border-radius:5px;padding:1px 6px;color:var(--accent);font-size:.9em}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(13,19,25,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:10px 16px}
+.topbarInner{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.brand{font-weight:800;font-size:17px;color:var(--text);display:flex;align-items:center;gap:8px}
+.brand span{color:var(--accent)}
+.navLinks{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.navLinks a{padding:5px 10px;border-radius:8px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:13px;font-weight:600}
+.navLinks a.primary{background:var(--accent);color:#082018;border-color:var(--accent)}
+.navLinks a:hover{border-color:var(--accent);text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:20px 16px 48px;display:flex;flex-direction:column;gap:24px}
+.hero{background:linear-gradient(135deg,rgba(110,193,165,.14),rgba(97,175,239,.08));border:1px solid var(--border);border-radius:14px;padding:22px}
+.hero h1{margin:0 0 8px;font-size:26px}
+.hero p{margin:0;color:var(--muted)}
+.section{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:20px}
+.section h2{margin:0 0 12px;font-size:20px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:8px}
+.section h3{margin:18px 0 8px;font-size:16px;color:var(--warn)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px}
+.card h4{margin:0 0 6px;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--border);background:#0f1720;color:var(--muted)}
+.badge.boss{border-color:var(--danger);color:var(--danger);background:rgba(224,108,117,.12)}
+.badge.dungeon{border-color:var(--purple);color:var(--purple);background:rgba(198,120,221,.12)}
+.badge.wild{border-color:var(--warn);color:var(--warn);background:rgba(229,192,123,.12)}
+.badge.safe{border-color:var(--ok);color:var(--ok);background:rgba(152,195,121,.12)}
+.statsRow{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;font-size:12px;font-family:ui-monospace,Consolas,monospace}
+.statPill{background:#0e161f;border:1px solid #243445;border-radius:6px;padding:2px 7px;color:var(--text)}
+.lore{margin:8px 0 0;color:#d0dbe6;font-size:14px}
+.tip{margin-top:8px;padding:8px 10px;border-left:3px solid var(--info);background:#101923;border-radius:0 8px 8px 0;font-size:13px;color:var(--muted)}
+.dungeonMap{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.dRow{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.dBox{background:#0f1720;border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;min-width:190px}
+.dBox.boss{border-color:var(--danger);background:rgba(224,108,117,.08)}
+.dArrow{color:var(--accent);font-weight:800}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13.5px}
+th,td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top;overflow-wrap:anywhere}
+th{background:#101822;color:var(--warn);font-weight:700}
+tr:nth-child(even) td{background:rgba(13,19,25,.35)}
+.searchBar{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 12px;align-items:center}
+.searchBar input{flex:1 1 240px;padding:9px 12px;border-radius:8px;border:1px solid var(--border);background:#0d141b;color:var(--text);font:inherit}
+.catBtns{display:flex;flex-wrap:wrap;gap:6px}
+.catBtns button{padding:6px 10px;border-radius:8px;border:1px solid var(--border);background:#1d2b3a;color:var(--text);cursor:pointer;font:inherit;font-size:12px;font-weight:600}
+.catBtns button.active{background:var(--accent);color:#082018;border-color:var(--accent)}
+.hidden{display:none}
+ul.clean{margin:6px 0 0;padding-left:20px}
+ul.clean li{margin:4px 0}
+@media (max-width:720px){
+  table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+}
+@media (max-width:640px){
+  .hero h1{font-size:21px}
+  .section{padding:14px}
+  th,td{padding:6px 7px;font-size:12.5px}
+}
+
+.liveConn{margin-top:16px;padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:rgba(13,19,25,.72);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.liveConnMeta{display:flex;flex-direction:column;gap:4px}
+.liveStatus{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+.liveDot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--danger)}
+.liveDot.online{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.liveUrl{font-family:ui-monospace,Consolas,monospace;font-size:13.5px;color:var(--accent);word-break:break-all}
+.liveTime{font-size:12px;color:var(--muted)}
+.liveActions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.liveBtn{padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--text);font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.liveBtn.primary{background:var(--accent);color:#082018;border-color:var(--accent)}
+.liveBtn.disabled{opacity:.5;pointer-events:none}
+.liveBtn:hover{text-decoration:none;border-color:var(--accent)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbarInner">
+    <div class="brand">⚔️ <span>重生世界 Reborn World</span>｜玩家指南</div>
+    <nav class="navLinks">
+      <a href="#gameplay">基礎玩法</a>
+      <a href="#economy">建築與科技</a>
+      <a href="#combat">戰鬥與切磋</a>
+      <a href="#social">社交與城市</a>
+      <a href="#dungeon">地下城故事</a>
+      <a href="#commands">指令速查</a>
+      <a class="primary" id="topPlayBtn" href="#connection-status" target="_blank" rel="noopener">⏸️ 目前離線</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h1>重生世界 Reborn World — 玩法指南與地下城圖鑑</h1>
+    <p>融合生存建設、文明科技演進、玩家社交城邦與地下城探險的繁體中文 MUD 世界。無論透過瀏覽器客戶端或 Telnet TCP（埠 4000）皆可使用中英文指令遊玩。</p>
+    <div class="liveConn" id="connection-status">
+      <div class="liveConnMeta">
+        <div class="liveStatus"><span class="liveDot " id="liveDot"></span><span id="liveStatusText">伺服器目前離線中</span></div>
+        <div class="liveUrl" id="liveUrlText">暫無公開連線網址，請稍後再重新整理查看</div>
+        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-27T14:33:58+08:00</div>
+      </div>
+      <div class="liveActions">
+        <a class="liveBtn primary disabled" id="livePlayBtn" href="#" target="_blank" rel="noopener">🎮 立即進入遊戲</a>
+        <button class="liveBtn" id="liveCopyBtn" type="button" disabled>📋 複製網址</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="gameplay">
+    <h2>一、新手入門與核心玩法</h2>
+    <div class="grid3">
+      <div class="card">
+        <h4>1. 登入與認識世界 <span class="badge safe">起點</span></h4>
+        <p>進入遊戲後輸入角色名稱與密碼即可誕生於 <strong>重生廣場（rebirth_square）</strong>。先用 <code>look</code> 觀察周圍出口、資源、NPC 與商人，<code>status</code> 查看自身屬性，<code>bag</code> 查看背包物品。</p>
+      </div>
+      <div class="card">
+        <h4>2. 採集、製作與裝備 <span class="badge">生存</span></h4>
+        <p>前往農墾地、河岸或荒野門口輸入 <code>gather</code> 採集木材、糧食、草藥、黏土與礦石。回到安全區或使用 <code>craft</code> 製作木劍、礦石護甲與簡易工具，並以 <code>equip</code> 穿戴提升戰力與採集量。</p>
+      </div>
+      <div class="card">
+        <h4>3. 佔領地塊與建造 <span class="badge">建設</span></h4>
+        <p>站在可佔領土地（如 <code>farmland_edge</code>、<code>river_path</code> 或荒野探索區）輸入 <code>claim</code> 建立領地。地塊上限為 <code>1 + 等級</code>，每格最多建造 5 種不同建築，並可指派工人自動生產。</p>
+      </div>
+    </div>
+
+    <h3>網頁客戶端操作亮點</h3>
+    <ul class="clean">
+      <li><strong>頂部即時 HUD</strong>：顯示等級、時代（農業／工業／知識）、HP、ATK、DEF、AGI（敏捷）、貨幣、所在地與佔領地塊數。</li>
+      <li><strong>右側互動側欄</strong>：
+        <ul class="clean">
+          <li><strong>周圍戰術小地圖／地下城節點圖</strong>：地面顯示 5×5 生態區色彩格（含 ✦ 資源、⚔ 怪物、📦 寶箱、◆ 己方領地、◇ 他方領地、! 世界事件圖示，點擊相鄰格移動）；進入無座標的古老遺跡地下城後，自動切換為「地下城節點圖」，標示怪物 ⚔️、Boss ☠️、寶箱 📦 與可點擊移動的相鄰節點。</li>
+          <li><strong>隊伍狀態列</strong>：一鍵建立隊伍、接受邀請、查看隊友位置／HP 與離隊。</li>
+          <li><strong>同房玩家</strong>：即時顯示同房玩家，提供「邀請組隊」、「切磋（非安全區）」與一鍵帶入 <code>give</code> 贈與指令。</li>
+          <li><strong>房間互動與戰鬥面板</strong>：平時顯示打怪／採集／商人／開寶箱／小屋休息按鈕；開戰或進入 <code>duel</code> 切磋後自動展開重擊、防禦、治療術、喝藥與逃走（附即時成功率）面板。</li>
+        </ul>
+      </li>
+      <li><strong>終端快捷鍵</strong>：輸入框支援 <code>Tab</code> 智慧補全（支援指令名、第 2 參數與第 3 參數）、<code>↑</code> / <code>↓</code> 歷史紀錄、<code>Ctrl+L</code> 清除螢幕。</li>
+      <li><strong>等級、三職業與力量負重</strong>：升級所需經驗採指數成長（<code>50 × 2^(等級-1)</code>）。每次升級依職業獲得不同成長曲線與 <code>STR（力量）</code>／<code>負重上限</code>：
+        <ul class="clean">
+          <li><strong>秩序騎士（<code>knight</code>）</strong>：Lv.1 HP 115 / STR 14 / ATK 11 / DEF 3 / AGI 7；每級 <code>HP +15、STR +3、ATK +1~2、DEF +1</code>，力量高且重甲適應強。專精【堅甲守護】：<code>defend</code> 減傷提升至 65%，受擊時護甲 50% 機率免損耐久。</li>
+          <li><strong>荒野獵人（<code>ranger</code>）</strong>：Lv.1 HP 100 / STR 10 / ATK 10 / DEF 2 / AGI 8；每級 <code>HP +10、STR +2、ATK +1~2、AGI +1~2</code>，全職業最高敏捷與野外機動性。專精【疾風斥候】：逃走成功率 +8%、採集 20% 機率多得 1 份資源、釣魚雙倍漁獲 +8%。</li>
+          <li><strong>工坊匠師（<code>artisan</code>）</strong>：Lv.1 HP 95 / STR 12 / ATK 9 / DEF 2 / AGI 8；每級 <code>HP +9、STR +2~3、ATK +1、AGI +1</code>，具備最高負重公式（<code>70 + STR×6.5 kg</code>），擅長採礦鍛造與跑商搬運。專精【巧手精工】：鍛造裝備 +4 工藝熟練加權，付費修理享 8 折並額外 +1 工藝熟練。</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>任務鏈一覽</h3>
+    <table>
+      <thead><tr><th>任務名稱</th><th>前置任務</th><th>目標</th><th>獎勵</th></tr></thead>
+      <tbody>
+        <tr><td>首次佔領（first_claim）</td><td>無</td><td>佔領 1 塊地塊</td><td>20 貨幣、木材 x2</td></tr>
+        <tr><td>首次建造（first_build）</td><td>首次佔領</td><td>建造 1 棟建築</td><td>30 貨幣、糧食 x2</td></tr>
+        <tr><td>首次升級（first_upgrade）</td><td>首次建造</td><td>將任一建築升至 Lv.2</td><td>40 貨幣、木板 x2</td></tr>
+        <tr><td>踏入荒野（explore_wilds）</td><td>首次佔領</td><td>探索靜態區外的程序化荒野</td><td>35 貨幣、簡易工具 x1</td></tr>
+        <tr><td>初露鋒芒（reach_lv2）</td><td>首次佔領</td><td>角色升至 Lv.2</td><td>50 貨幣、乾糧 x2</td></tr>
+        <tr><td>勤勞採集（gather_ten）</td><td>無</td><td>累計採集資源 10 次</td><td>50 貨幣、簡易工具 x1</td></tr>
+        <tr><td>首次交易（first_trade）</td><td>無</td><td>向商人完成 1 次買賣</td><td>15 貨幣</td></tr>
+        <tr><td>首次狩獵（first_hunt）</td><td>無</td><td>擊敗 1 隻敵對生物</td><td>25 貨幣、礦石 x1</td></tr>
+        <tr><td>遺跡征服者（dungeon_clear）</td><td>首次狩獵</td><td>深入古老遺跡擊敗【Boss】古代魔像</td><td>120 貨幣、精鐵劍 x1</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="economy">
+    <h2>二、建築、經濟與文明科技樹</h2>
+    <div class="grid2">
+      <div>
+        <h3>7 種領地建築</h3>
+        <table>
+          <thead><tr><th>建築（別名）</th><th>建造成本</th><th>功能與效果</th></tr></thead>
+          <tbody>
+            <tr><td><code>hut</code> 小屋</td><td>木2 幣20</td><td>可用 <code>rest</code> 完全恢復 HP；每級增加 +2 工人名額</td></tr>
+            <tr><td><code>farm</code> 農田</td><td>木2 糧1 幣30</td><td>隨 tick 週期自動產出糧食</td></tr>
+            <tr><td><code>workshop</code> 工坊</td><td>木3 礦1 幣40</td><td>解鎖工業時代前置建築之一；優先消耗同地塊倉庫木材產出木板（背包會保留至少 6 個木材）</td></tr>
+            <tr><td><code>warehouse</code> 倉庫</td><td>木4 幣50</td><td>使用 <code>deposit</code> / <code>withdraw</code> 存取物品</td></tr>
+            <tr><td><code>barracks</code> 兵營</td><td>木3 糧1 礦2 幣60</td><td>所在房間防禦 +Lv、強化巡邏守衛工人傷害</td></tr>
+            <tr><td><code>market</code> 市集</td><td>木3 糧1 礦1 幣80</td><td>可自訂交易稅率、上架玩家商品（<code>listitem</code>）、提取稅收</td></tr>
+            <tr><td><code>lab</code> 研究所</td><td>木4 糧1 礦3 幣100</td><td>研發工業時代與知識時代科技的關鍵設施</td></tr>
+          </tbody>
+        </table>
+        <div class="tip">建築施工預設需時 30 秒，之後每 60 秒收取維護費（建造成本貨幣的 10%）；資金不足時會暫時「停擺」並於補齊貨幣後自動恢復。可用 <code>demolish</code>（退還 50% 成本）或 <code>replace</code> 替換建築。</div>
+      </div>
+      <div>
+        <h3>時代科技樹（<code>tech</code> / <code>research</code>）</h3>
+        <div class="card" style="margin-bottom:10px">
+          <h4>農業時代 → 工業時代 <code>industrial</code></h4>
+          <p><strong>條件：</strong>擁有已完工運作中的工坊或研究所，消耗 <code>木板 x2</code>、<code>礦石 x3</code>、<code>貨幣 x80</code>。</p>
+          <p><strong>解鎖：</strong>精鐵冶煉（<code>steel</code>）、精鐵工具（ATK +3、採集 +2）、精鐵劍（ATK +8）、精鐵護甲（DEF +6）。</p>
+        </div>
+        <div class="card">
+          <h4>工業時代 → 知識時代 <code>knowledge</code></h4>
+          <p><strong>條件：</strong>已進入工業時代且擁有運作中的研究所，消耗 <code>魔晶 x2</code>、<code>貨幣 x150</code>。</p>
+          <p><strong>解鎖：</strong>主動技能 <code>healspell</code>（治療術）、全建築產出 +1，並解鎖 <code>魔晶藥劑</code>、<code>魔晶劍</code>（ATK +13、AGI +2）、<code>魔晶甲</code>（DEF +10、AGI +1）。</p>
+        </div>
+
+        <h3>物品與配方速查</h3>
+        <table>
+          <thead><tr><th>ID / 中文</th><th>類型 / 效果</th><th>製作配方</th></tr></thead>
+          <tbody>
+            <tr><td><code>food</code> 糧食</td><td>消耗品：恢復 15 HP</td><td>農田產出／採集／購買</td></tr>
+            <tr><td><code>ration</code> 乾糧</td><td>消耗品：恢復 40 HP</td><td>糧食 x2</td></tr>
+            <tr><td><code>herb</code> 草藥</td><td>消耗品：恢復 25 HP＋解毒</td><td>野外採集／商人</td></tr>
+            <tr><td><code>elixir</code> 魔晶藥劑 [知識]</td><td>消耗品：恢復 80 HP＋解毒／止血</td><td>草藥 x2 + 魔晶 x1</td></tr>
+            <tr><td><code>plank</code> 木板 / <code>brick</code> 磚塊</td><td>建材／科技材料</td><td>木材 x2 / 黏土 x2</td></tr>
+            <tr><td><code>tool</code> 簡易工具</td><td>工具：ATK +1、採集量 +1</td><td>木材 x1 + 礦石 x1</td></tr>
+            <tr><td><code>steel_tool</code> 精鐵工具 [工業]</td><td>工具：ATK +3、採集量 +2</td><td>精鐵 x2 + 木材 x1</td></tr>
+            <tr><td><code>wood_sword</code> 木劍</td><td>武器：ATK +4</td><td>木板 x1 + 木材 x2</td></tr>
+            <tr><td><code>ore_armor</code> 礦石護甲</td><td>護甲：DEF +3</td><td>礦石 x2 + 纖維 x2</td></tr>
+            <tr><td><code>steel</code> 精鐵 [工業]</td><td>高階鍛造材料</td><td>礦石 x2 + 木材 x1</td></tr>
+            <tr><td><code>steel_sword</code> 精鐵劍 [工業]</td><td>武器：ATK +8</td><td>精鐵 x2 + 木板 x1</td></tr>
+            <tr><td><code>steel_armor</code> 精鐵護甲 [工業]</td><td>護甲：DEF +6</td><td>精鐵 x2 + 礦石 x2</td></tr>
+            <tr><td><code>crystal_blade</code> 魔晶劍 [知識]</td><td>武器：ATK +13、AGI +2</td><td>精鐵劍 x1 + 魔晶 x2（可直接以穿戴中的精鐵劍升級）</td></tr>
+            <tr><td><code>crystal_armor</code> 魔晶甲 [知識]</td><td>護甲：DEF +10、AGI +1</td><td>精鐵護甲 x1 + 魔晶 x2（可直接以穿戴中的精鐵護甲升級）</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="combat">
+    <h2>三、戰鬥系統、世界事件與互動切磋</h2>
+    <div class="grid2">
+      <div class="card">
+        <h4>⚔️ PvE 2 秒自動回合戰鬥</h4>
+        <ul class="clean">
+          <li>輸入 <code>attack &lt;目標&gt;</code>（或 <code>slash</code>）立即發動第一擊並進入自動回合制，之後每 <strong>2 秒</strong> 自動推進一拍（敵方反擊 → 我方自動普攻）。</li>
+          <li><strong>敵方倒數中預約</strong>：等待敵方反擊時點擊或輸入 <code>slash</code>、<code>defend</code>、<code>healspell</code>、<code>eat</code>、<code>flee</code>，會在敵方行動後自動優先執行。</li>
+          <li><strong>技能與狀態</strong>：
+            <ul class="clean">
+              <li><code>slash</code>（重擊）：1.6 倍傷害，50% 機率附加流血（每回合 4 傷，持續 2 回合），冷卻 10 秒。</li>
+              <li><code>defend</code>（防禦姿態）：獲得護盾，接下來 2 次受擊減傷 50%。</li>
+              <li><code>healspell</code>（治療術，知識時代）：恢復 <code>35 + 等級×5</code> HP 並清除流血與中毒，冷卻 15 秒。</li>
+              <li><code>flee</code>（逃走）：成功率 15%～95%，受雙方 <strong>AGI（敏捷）</strong> 與等級差影響，Boss 戰額外 -15%。</li>
+            </ul>
+          </li>
+          <li><strong>怪物性格、招式倍率與群攻</strong>：
+            <ul class="clean">
+              <li><strong>主動攻擊 vs 被動攻擊</strong>：<code>被動</code> 怪物（如荒野狼、石像鬼、遺跡守衛）需玩家主動攻擊才開戰；<code>主動</code> 怪物（如暗影祭司、古代魔像、密林／荒漠／裂谷強敵）踏入房間即會觸發先制襲擊。</li>
+              <li><strong>不同詞條不同傷害</strong>：每種怪物的多種攻擊詞條各具獨立傷害倍率（輕擊 <code>0.85x</code> ～ 強擊 <code>1.4x</code>），不再固定同一傷害。</li>
+              <li><strong>地下城群體攻擊</strong>：地下城怪物具備群攻招式（<code>isAoe</code>），施放時會同時波及同房隊友與共同交戰的玩家（建議善用 <code>defend</code> 減傷與 <code>elixir</code>/<code>herb</code> 補血）。</li>
+              <li><strong>機率掉寶</strong>：戰利品依 <code>data/world/npcs.json</code> 中各品項的 <code>chance</code>（0～1）機率掉落，可隨時自行調整。</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>🤝 互動式玩家切磋（<code>duel</code>）</h4>
+        <ul class="clean">
+          <li><strong>限非安全區</strong>：在非 <code>safe</code> 房間使用 <code>duel &lt;玩家&gt;</code> 發起邀請，對方輸入 <code>duel accept</code> 開戰（最多 5 回合，每步 2 秒）。</li>
+          <li><strong>全程可互動</strong>：切磋中雙方均可即時出招或預約 <code>attack</code>、<code>slash</code>、<code>defend</code>、<code>healspell</code>、<code>eat &lt;物品&gt;</code>，也可輸入 <code>flee</code> 或 <code>duel forfeit</code> 認輸結束。</li>
+          <li><strong>友誼賽保護</strong>：切磋不會導致死亡回城，HP 最低止步於 1，勝者獲得 <strong>+15 EXP</strong>。</li>
+        </ul>
+        <h4 style="margin-top:12px">🌍 隨機世界事件（<code>events</code>）</h4>
+        <p style="margin:4px 0;font-size:13.5px">包含 <strong>暴風雨</strong>（採集×0.5）、<strong>流浪商人</strong>（採集×1.2 + 貨幣加成）、<strong>豐收祝禱</strong>（採集×1.5、資源加速重生）、<strong>盜匪出沒</strong>、<strong>寶藏出現</strong>（全房共同採集 5 次開寶）與 <strong>圍攻</strong>（共同擊退 2 名入侵者領賞）。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="social">
+    <h2>四、社交、組隊、派系與城市治理</h2>
+    <div class="grid3">
+      <div class="card">
+        <h4>🛡️ 三大派系</h4>
+        <p>輸入 <code>factions</code> 查看、<code>joinfaction &lt;id&gt;</code> 加入、<code>fchat &lt;訊息&gt;</code> 派系聊天：</p>
+        <ul class="clean">
+          <li><code>order</code> 秩序騎士 — 守護廣場秩序</li>
+          <li><code>wild</code> 荒野獵人 — 荒野生存與狩獵</li>
+          <li><code>craft</code> 工坊聯盟 — 製造與貿易網絡</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>👥 組隊狩獵（<code>party</code>）</h4>
+        <p>使用 <code>party create</code> 建隊並邀請隊友。擊殺怪物時，同房隊友可共享經驗池（2 人以上總經驗池 ×1.2，隊友分得 75%），並同步推進任務進度。</p>
+      </div>
+      <div class="card">
+        <h4>🏰 城市與外交（<code>city</code>）</h4>
+        <p>加入派系且名下至少擁有 <strong>2 塊已佔領地塊</strong> 後，站在自己領地輸入 <code>city create &lt;名稱&gt;</code> 建城，支援 <code>city expand</code> 擴張轄區、<code>city project</code> 興建石砌城牆（防禦+2）／商會紀念碑（交易紅利）／城邦醫療所（免費 <code>rest</code>）、外交關稅（同盟免附加稅／敵對雙倍）與派系共享倉庫（<code>fstorage</code>）。建城領地還會隨機觸發<strong>城市建設與防線事件</strong>（城市慶典、興建徵集、商會博覽、防線警報），回饋城市金庫與市民賞金。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="dungeon">
+    <h2>五、地下城探索與怪物圖鑑故事</h2>
+    <div class="card" style="margin-bottom:14px">
+      <h4>📜 傳說篇章：《古老遺跡：沉眠的萬象核心》</h4>
+      <p class="lore">在「萬象皆可重生」古碑立於重生廣場之前，這片大陸曾存在過一個掌握高純度魔晶技術的先民王朝。為了在天地異變時保存文明火種，先民工匠於荒野北端構築了深達數層的地下聖殿，將所有精鐵儲備與「萬象核心」封印其中。然而，失去約束的魔晶餘暉吸引了一切渴望力量的生靈與遊魂——飢餓的狼群盤踞地面殘垣，石像鬼與自律衛兵在石廊中不知疲倦地巡行，狂熱的暗影教徒更將祭壇染成劇毒的幽暗深淵。唯有通過核心深處「古代魔像」試煉的冒險者，方能繼承舊世界的精鐵與魔晶，點亮屬於自己的知識時代。</p>
+      <div class="dungeonMap">
+        <div class="dRow">
+          <div class="dBox"><strong>古老遺跡（old_ruins）</strong><br/>地面入口 · 荒野狼 Lv.1 · 礦石</div>
+          <span class="dArrow">──(down)──▶</span>
+          <div class="dBox"><strong>遺跡一層·石廊（ruins_b1）</strong><br/>危險度 4 · 石像鬼 Lv.3</div>
+          <span class="dArrow">──(east)──▶</span>
+          <div class="dBox"><strong>遺跡側室·封印室（ruins_vault）</strong><br/>危險度 4 · 遺跡守衛 Lv.4 · 📦陷阱寶箱（精鐵x2、幣45）</div>
+        </div>
+        <div class="dRow">
+          <div class="dBox" style="visibility:hidden">占位</div>
+          <span class="dArrow" style="visibility:hidden">──(down)──▶</span>
+          <div class="dBox" style="border-color:var(--purple)"><strong>遺跡二層·幽暗祭壇（ruins_b2）</strong><br/>危險度 5 · 暗影祭司 Lv.5（會施毒）</div>
+          <span class="dArrow">──(down)──▶</span>
+          <div class="dBox boss"><strong>遺跡深處·古代核心室（ruins_boss）</strong><br/>危險度 6 · ☠️【Boss】古代魔像 Lv.7 · 📦核心寶箱（魔晶x2、幣100）</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>地下城核心怪物與 Boss 故事</h3>
+    <div class="grid2">
+      <article class="card">
+        <h4>1. 石像鬼 <span class="badge dungeon">遺跡一層·石廊</span></h4>
+        <div class="statsRow">
+          <span class="statPill">Lv.3</span><span class="statPill">HP 95</span><span class="statPill">ATK 17</span><span class="statPill">DEF 5</span><span class="statPill">AGI 10</span><span class="statPill">掉落：礦石x2、魔晶x1、26幣</span>
+        </div>
+        <p class="lore">「廊道無聲，唯石翼低鳴。」——先民工匠將花崗岩骨髓與魔晶微粒熔鑄而成的一層守衛。千年風化讓它們的外殼佈滿裂痕，但嵌入胸腔的魔晶仍在夜間微微搏動。它們敏捷不高，卻擁有堅硬的石質外甲，專責攔截未獲授權便想踏入下層階梯的盜墓者。</p>
+        <div class="tip">攻略建議：石質外甲厚實（DEF 5），建議至少裝備木劍與礦石護甲，並搭配 <code>slash</code> 重擊作為地下城第一道礦石／魔晶來源。</div>
+      </article>
+
+      <article class="card">
+        <h4>2. 遺跡守衛 <span class="badge dungeon">遺跡側室·封印室</span></h4>
+        <div class="statsRow">
+          <span class="statPill">Lv.4</span><span class="statPill">HP 125</span><span class="statPill">ATK 20</span><span class="statPill">DEF 6</span><span class="statPill">AGI 12</span><span class="statPill">掉落：精鐵x1、魔晶x1、35幣</span>
+        </div>
+        <p class="lore">「鐵甲不朽，軍令長存。」——不同於石廊的石像鬼，封印室內的守衛曾是王朝親衛隊的自律兵器原型。它們披覆著百戰不腐的古代精鐵甲冑，只為守護角落那只佈滿符文的軍備寶箱。即便王朝早已化為塵土，任何企圖開啟寶箱的人仍會觸動它沉重的長戟。</p>
+        <div class="tip">攻略建議：此房寶箱內含「精鐵 x2 + 45 貨幣」，但設有符文陷阱！建議裝備「簡易工具」減少陷阱傷害並多帶糧食或乾糧後再挑戰與開箱。</div>
+      </article>
+
+      <article class="card">
+        <h4>3. 暗影祭司 <span class="badge dungeon">遺跡二層·幽暗祭壇</span></h4>
+        <div class="statsRow">
+          <span class="statPill">Lv.5</span><span class="statPill">HP 150</span><span class="statPill">ATK 23</span><span class="statPill">DEF 6</span><span class="statPill">AGI 14</span><span class="statPill">掉落：魔晶x1、草藥x2、45幣</span>
+        </div>
+        <p class="lore">「若光明已逝，便以毒霧喚醒深處之主。」——遺跡二層的藍光並非來自聖火，而是古代教團末代祭司留下的執念殘魂。在舊世界崩毀前夕，他們拒絕封存魔晶核心，企圖將魔晶與腐蝕咒術融合來對抗災厄，最終連同靈魂一起被束縛於祭壇之上。其攻擊有 <strong>35% 機率使冒險者中毒</strong>（持續 2 回合、每回合造成 6 點傷害）。</p>
+        <div class="tip">攻略建議：高敏捷且攻高施毒，強烈建議背包準備數株 <code>herb</code>（草藥）於戰中一鍵喝藥解毒，或於適當時機開啟 <code>defend</code> 護盾。</div>
+      </article>
+
+      <article class="card">
+        <h4>4. 【Boss】古代魔像 <span class="badge boss">遺跡深處·古代核心室</span></h4>
+        <div class="statsRow">
+          <span class="statPill">Lv.7</span><span class="statPill">HP 260</span><span class="statPill">ATK 27</span><span class="statPill">DEF 8</span><span class="statPill">AGI 13</span><span class="statPill">掉落：魔晶x2、精鐵x2、120幣</span>
+        </div>
+        <p class="lore">「唯有重塑秩序之人，方得動用核心之力。」——矗立於最深處石室中央的百噸巨像，是舊文明在科技與奇幻交會巔峰時鑄造的最終試煉者。它體內運轉著純淨魔晶爐心，雙拳兼具粉碎精鐵的蠻力與核心洩漏的劇毒輻射（35% 機率附加中毒）。當它感應到地表再次出現建立工坊、研究時代的新生靈魂時，雙眼重新亮起蒼藍光芒——它不是為了毀滅，而是為了檢驗新世界的勇者是否具備承接知識時代的資格。</p>
+        <div class="tip">攻略建議：Boss 逃走率額外 -15% 且血厚攻高。建議先解鎖工業時代鍛造 <strong>精鐵劍</strong> 與 <strong>精鐵護甲</strong>，或組成 2 人以上隊伍（<code>party</code>）合力討伐，善用 <code>slash</code> 流血、<code>defend</code> 減傷與乾糧／草藥！擊敗可推進主線任務「遺跡征服者」獲得額外 120 貨幣與精鐵劍。</div>
+      </article>
+    </div>
+
+    <h3>地表荒野與程序化區域生態圖鑑</h3>
+    <div class="grid2">
+      <div class="card">
+        <h4>荒野狼 <span class="badge wild">old_ruins 地面入口</span></h4>
+        <div class="statsRow"><span class="statPill">Lv.1</span><span class="statPill">HP 38</span><span class="statPill">ATK 11</span><span class="statPill">DEF 2</span><span class="statPill">AGI 10</span><span class="statPill">掉落：糧食x1、6幣</span></div>
+        <p class="lore">遊蕩於破碎石柱間的飢餓野狼，受地底滲出的魔晶氣息驅使而比尋常野獸更躁動，是新手踏出重生廣場後的第一場實戰考驗。</p>
+      </div>
+      <div class="card">
+        <h4>流浪盜匪 <span class="badge wild">forest_edge 森林邊緣</span></h4>
+        <div class="statsRow"><span class="statPill">Lv.2</span><span class="statPill">HP 65</span><span class="statPill">ATK 14</span><span class="statPill">DEF 3</span><span class="statPill">AGI 11</span><span class="statPill">掉落：木材x1、糧食x1、18幣</span></div>
+        <p class="lore">拒絶加入城邦與任何派系的掠奪者，潛伏於林間專搶伐木工與採藥人，身上常藏有不少搜刮來的貨幣。</p>
+      </div>
+      <div class="card">
+        <h4>森林巨熊 <span class="badge wild">程序化森林區</span></h4>
+        <div class="statsRow"><span class="statPill">Lv.2+</span><span class="statPill">依危險度動態生成</span></div>
+        <p class="lore">棲息於開拓邊境之外深林的龐然巨獸，皮糙肉厚、領地意識極強，常出沒於高資源儲量的野生林區。</p>
+      </div>
+      <div class="card">
+        <h4>荒漠掠奪者 / 荒漠巨蠍 / 沙漠沙蟲 <span class="badge wild">程序化荒漠區</span></h4>
+        <div class="statsRow"><span class="statPill">危險度 2～3 / 4+</span><span class="statPill">依危險度動態生成</span></div>
+        <p class="lore">在遙遠荒漠地帶，劫掠者與帶毒甲殼的「荒漠巨蠍」出沒於礫石間；而危險度 4 以上的深層沙丘則潛伏著會從流沙底突襲的巨大「沙漠沙蟲」。</p>
+      </div>
+      <div class="card">
+        <h4>魔晶傀儡 <span class="badge dungeon">程序化魔晶裂谷</span></h4>
+        <div class="statsRow"><span class="statPill">危險度 4～6</span><span class="statPill">外域裂谷（距離 &gt; 13）</span></div>
+        <p class="lore">遠離重生廣場最深外域的「魔晶裂谷」蘊含露天魔晶礦脈與稀有寶箱，由古代能量結晶凝聚而成的魔晶傀儡巡守其間，擊敗可取得魔晶與豐厚戰利品。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="commands">
+    <h2>六、完整指令功能速查</h2>
+    <div class="searchBar">
+      <input id="cmdSearch" type="search" placeholder="搜尋指令、中文別名或關鍵字（例如：duel、重擊、市集、party）..." />
+      <div class="catBtns" id="catBtns">
+        <button class="active" data-cat="all">全部</button>
+        <button data-cat="basic">基本／移動</button>
+        <button data-cat="build">佔領／建築／倉庫</button>
+        <button data-cat="craft">採集／製作／科技</button>
+        <button data-cat="econ">商店／市集／工人</button>
+        <button data-cat="combat">戰鬥／切磋／任務</button>
+        <button data-cat="social">社交／組隊／城市</button>
+        <button data-cat="gm">帳號／GM</button>
+      </div>
+    </div>
+    <table>
+      <thead><tr><th>指令</th><th>中文／縮寫別名</th><th>用法</th><th>功能說明</th></tr></thead>
+      <tbody id="cmdBody">
+        <tr data-cat="basic"><td><code>help</code></td><td><code>?</code> / <code>指令</code> / <code>幫助</code></td><td><code>help [指令]</code></td><td>顯示全部指令列表或查詢單一指令細節</td></tr>
+        <tr data-cat="basic"><td><code>look</code></td><td><code>l</code> / <code>看</code></td><td><code>look</code></td><td>查看目前房間描述、出口、NPC、玩家、資源、寶箱與事件</td></tr>
+        <tr data-cat="basic"><td><code>status</code></td><td><code>st</code> / <code>狀態</code></td><td><code>status</code></td><td>查看職業、等級、EXP、HP/ATK/DEF/AGI/STR、負重、貨幣與裝備狀態</td></tr>
+        <tr data-cat="basic"><td><code>class</code></td><td><code>職業</code> / <code>轉職</code></td><td><code>class [knight|ranger|artisan]</code></td><td>查看秩序騎士、荒野獵人、工坊匠師三職業屬性與升級曲線，並選擇或轉換職業</td></tr>
+        <tr data-cat="basic"><td><code>bag</code> / <code>drop</code></td><td><code>背包</code> / <code>丟棄</code></td><td><code>bag</code> / <code>drop &lt;物品&gt; [量]</code></td><td>查看各物品重量、總負重與背包明細；丟棄多餘物品減輕負重</td></tr>
+        <tr data-cat="basic"><td><code>where</code> / <code>who</code></td><td><code>位置</code> / <code>在線</code></td><td><code>where</code> / <code>who</code></td><td>查看目前房間名稱 ID 或全服在線玩家名單</td></tr>
+        <tr data-cat="basic"><td><code>go</code> / 方向鍵</td><td><code>move</code> / <code>走</code> / <code>n s e w u d</code> / <code>北南東西上下</code></td><td><code>go &lt;方向&gt;</code> 或直接輸入 <code>n</code></td><td>往指定方向移動（支援地面與地下城上下層）</td></tr>
+        <tr data-cat="basic"><td><code>map</code></td><td><code>地圖</code></td><td><code>map</code></td><td>顯示以目前座標為中心的文字地圖（<code>@</code> 為自己）</td></tr>
+        <tr data-cat="basic"><td><code>recall</code></td><td><code>回城</code> / <code>home</code></td><td><code>recall</code></td><td>非戰鬥／切磋時傳送回重生廣場</td></tr>
+
+        <tr data-cat="build"><td><code>claim</code></td><td><code>佔領</code></td><td><code>claim</code></td><td>佔領目前可開墾地塊（上限 <code>1+等級</code>；靜態 NPC/商人房不可佔領）</td></tr>
+        <tr data-cat="build"><td><code>plots</code></td><td><code>領地</code> / <code>我的地塊</code></td><td><code>plots</code></td><td>查看名下所有已佔領地塊與建築狀態</td></tr>
+        <tr data-cat="build"><td><code>build</code></td><td><code>建造</code></td><td><code>build &lt;建築類型&gt;</code></td><td>在名下地塊建造（支援 <code>小屋/工坊/倉庫/農田/兵營/市集/研究所</code>，每格最多 5 種）</td></tr>
+        <tr data-cat="build"><td><code>upgrade</code></td><td><code>升級</code></td><td><code>upgrade [建築類型]</code></td><td>升級建築等級以提升產出或效果</td></tr>
+        <tr data-cat="build"><td><code>demolish</code></td><td><code>拆除</code> / <code>拆建築</code></td><td><code>demolish &lt;建築類型&gt;</code></td><td>拆除建築並退還 50% 成本（倉庫需先清空）</td></tr>
+        <tr data-cat="build"><td><code>replace</code></td><td><code>替換</code> / <code>改建</code></td><td><code>replace &lt;舊&gt; &lt;新&gt;</code></td><td>原地拆舊建新（該格僅 1 棟時可簡寫為 <code>replace &lt;新建築&gt;</code>）</td></tr>
+        <tr data-cat="build"><td><code>rest</code></td><td><code>休息</code></td><td><code>rest</code></td><td>站在自己已完工的小屋地塊恢復至滿 HP</td></tr>
+        <tr data-cat="build"><td><code>storage</code></td><td><code>倉庫</code></td><td><code>storage</code></td><td>查看目前地塊倉庫存貨</td></tr>
+        <tr data-cat="build"><td><code>deposit</code> / <code>withdraw</code></td><td><code>存放</code> / <code>取出</code></td><td><code>deposit &lt;物品&gt; &lt;數量&gt;</code></td><td>將背包物品存入或取出自己地塊的倉庫</td></tr>
+
+        <tr data-cat="craft"><td><code>gather</code></td><td><code>採集</code> / <code>收集</code></td><td><code>gather</code></td><td>採集目前房間資源（裝備簡易工具可 +1 量，野外各生態可挖出蚯蚓餌／螢光餌／秘寶金餌或未鑑定古物）</td></tr>
+        <tr data-cat="craft"><td><code>fish</code></td><td><code>釣魚</code> / <code>垂釣</code></td><td><code>fish [魚餌|none]</code></td><td>在水域房間垂釣（空鉤中魚率極低；商人僅常駐販售最低階「魚餌」，高階蚯蚓餌／螢光餌／秘寶金餌需野外挖取或向商人購買其他玩家售出的庫存；裝備「尋魚透鏡」可洞察預估中魚率）</td></tr>
+        <tr data-cat="craft"><td><code>appraise</code> / <code>dig</code></td><td><code>鑑定</code> / <code>挖寶</code> / <code>尋寶</code></td><td><code>appraise</code> / <code>dig</code></td><td>於廣場或研究所鑑定古物；解讀藏寶圖並至目標座標挖掘秘寶</td></tr>
+        <tr data-cat="craft"><td><code>open</code></td><td><code>開寶箱</code> / <code>開啟</code></td><td><code>open</code></td><td>開啟房間內尚未領取的寶箱（含陷阱判定）</td></tr>
+        <tr data-cat="craft"><td><code>recipes</code></td><td><code>配方</code></td><td><code>recipes</code></td><td>查看所有可製作物品配方與時代需求</td></tr>
+        <tr data-cat="craft"><td><code>craft</code></td><td><code>製作</code></td><td><code>craft &lt;配方ID|中文名&gt;</code></td><td>消耗材料製作建材、料理、增益茶飲與裝備（每件武器裝備皆具隨機數值浮動、耐久度與匠師署名，並有機率鍛造出精良／大師品質）</td></tr>
+        <tr data-cat="craft"><td><code>eat</code></td><td><code>use</code> / <code>吃</code> / <code>使用</code></td><td><code>eat &lt;物品&gt;</code></td><td>食用消耗品恢復 HP 或獲得料理限時增益 Buff（<code>herb</code> 解毒、<code>elixir</code> 全解）</td></tr>
+        <tr data-cat="craft"><td><code>equip</code> / <code>unequip</code></td><td><code>裝備</code> / <code>卸下</code></td><td><code>equip &lt;物品&gt;</code> / <code>unequip &lt;欄位&gt;</code></td><td>穿戴或卸下武器（weapon）、護甲（armor）、工具（tool）（裝備具備耐久度，歸零時屬性失效）</td></tr>
+        <tr data-cat="craft"><td><code>repair</code></td><td><code>修理</code> / <code>修復</code></td><td><code>repair [欄位|物品|all]</code></td><td>消耗材料（或於重生廣場／工坊依損耗比例付費，匠師享 8 折）修復武器、護甲與工具的耐久度</td></tr>
+        <tr data-cat="craft"><td><code>tech</code> / <code>research</code></td><td><code>科技</code> / <code>研究</code></td><td><code>research &lt;industrial|knowledge&gt;</code></td><td>查看時代科技進度與研發工業／知識時代</td></tr>
+
+        <tr data-cat="econ"><td><code>shop</code></td><td><code>商店</code> / <code>merchant</code> / <code>商人</code></td><td><code>shop [merchantId]</code></td><td>查看同房商人商品、動態買賣價與庫存</td></tr>
+        <tr data-cat="econ"><td><code>buy</code> / <code>sell</code></td><td><code>購買</code> / <code>買</code> / <code>販賣</code> / <code>賣</code></td><td><code>buy &lt;物品&gt; [數量]</code></td><td>向商人買進或賣出物品（同房市集稅率自動計入）</td></tr>
+        <tr data-cat="econ"><td><code>market</code> / <code>marketstock</code></td><td><code>市場</code> / <code>市集</code> / <code>市集庫存</code></td><td><code>market</code> / <code>marketstock</code></td><td>查看目前地塊市集資訊或玩家上架清單</td></tr>
+        <tr data-cat="econ"><td><code>marketboard</code> / <code>remotebuy</code></td><td><code>全服市場</code> / <code>看板</code> / <code>遠距購買</code></td><td><code>marketboard [關鍵字]</code> / <code>remotebuy &lt;編號&gt; [量]</code></td><td>瀏覽全服所有玩家市集上架商品與比價，並支援遠距快遞購買（+5% 運費）</td></tr>
+        <tr data-cat="econ"><td><code>listitem</code> / <code>buylisting</code> / <code>stall</code></td><td><code>上架</code> / <code>購買上架</code> / <code>開放擺攤</code></td><td><code>listitem &lt;物品&gt; &lt;量&gt; &lt;單價&gt;</code> / <code>stall &lt;on|off&gt;</code></td><td>於市集寄售物品、購買上架商品，或開放外來玩家在你的市集擺攤</td></tr>
+        <tr data-cat="econ"><td><code>tax</code> / <code>withdrawtax</code></td><td><code>稅率</code> / <code>提取稅收</code></td><td><code>tax &lt;0-0.3&gt;</code></td><td>市集擁有者調整交易稅率（0%～30%）或提取累積稅金</td></tr>
+        <tr data-cat="econ"><td><code>servicefee</code></td><td><code>設施收費</code> / <code>服務定價</code></td><td><code>servicefee &lt;rest|craft|appraise&gt; &lt;金額|off&gt;</code></td><td>地主開放小屋旅店、工坊借用或研究所鑑定等對外收費服務</td></tr>
+        <tr data-cat="econ"><td><code>orders</code> / <code>deliver</code></td><td><code>委託</code> / <code>交貨</code></td><td><code>orders</code> / <code>deliver &lt;編號&gt;</code></td><td>查看商會限時委託與玩家收購單，並交付商會訂單換取高額賞金</td></tr>
+        <tr data-cat="econ"><td><code>buyorder</code> / <code>fillorder</code> / <code>cancelorder</code></td><td><code>收購</code> / <code>接單</code> / <code>撤單</code></td><td><code>buyorder &lt;物品&gt; &lt;量&gt; &lt;單價&gt;</code></td><td>發布託管收購懸賞、供應他人收購單賺取貨幣或撤銷自訂收購單</td></tr>
+        <tr data-cat="econ"><td><code>auctions</code> / <code>auction</code> / <code>bid</code></td><td><code>拍賣行</code> / <code>拍賣</code> / <code>出價</code></td><td><code>auction &lt;物品&gt; &lt;起標價&gt; [分]</code> / <code>bid &lt;編號&gt; &lt;金額&gt;</code></td><td>上架限時拍賣競標（含防偷秒延長機制）與競標稀世裝備</td></tr>
+        <tr data-cat="econ"><td><code>trade</code></td><td><code>跑商</code> / <code>行情</code></td><td><code>trade [info|buy|sell|drop] [特產] [量]</code></td><td>採購區域特產貨箱並步行運往遠處據點或玩家市集賺取距離差價</td></tr>
+        <tr data-cat="econ"><td><code>worker</code> / <code>workers</code> / <code>workerrecipe</code></td><td><code>工人</code> / <code>工人列表</code> / <code>工人配方</code></td><td><code>worker &lt;角色&gt;</code> / <code>workerrecipe &lt;配方|auto&gt;</code></td><td>指派採集／製作／守衛工人，並指定製作工人優先產線</td></tr>
+
+        <tr data-cat="combat"><td><code>attack</code></td><td><code>攻擊</code> / <code>atk</code></td><td><code>attack [目標]</code></td><td>開戰或立即普攻；於自動戰鬥／切磋倒數時用來取消預約</td></tr>
+        <tr data-cat="combat"><td><code>slash</code></td><td><code>重擊</code> / <code>skill</code></td><td><code>slash [目標]</code></td><td>1.6x 傷害並 50% 機率附加流血（10 秒冷卻，戰中／切磋可省略目標）</td></tr>
+        <tr data-cat="combat"><td><code>special</code></td><td><code>專技</code> / <code>奧義</code> / <code>classskill</code></td><td><code>special [目標]</code></td><td>Lv.3+ 職業專屬主動技：騎士【聖盾反擊】、獵人【淬毒連矢】、匠師【晶能爆破】（12 秒冷卻）</td></tr>
+        <tr data-cat="combat"><td><code>defend</code></td><td><code>防禦</code> / <code>架勢</code></td><td><code>defend</code></td><td>架起防禦護盾，下 2 次受擊減傷 50%（支援戰鬥與切磋）</td></tr>
+        <tr data-cat="combat"><td><code>healspell</code></td><td><code>治療術</code> / <code>治癒</code></td><td><code>healspell</code></td><td>知識時代技能：恢復 HP 並淨化流血／中毒（15 秒冷卻）</td></tr>
+        <tr data-cat="combat"><td><code>flee</code></td><td><code>run</code> / <code>escape</code> / <code>逃走</code> / <code>逃跑</code> / <code>撤退</code></td><td><code>flee</code></td><td>依雙方 AGI 與等級逃離 PvE 戰鬥，或於切磋中直接認輸結束</td></tr>
+        <tr data-cat="combat"><td><code>duel</code></td><td><code>決鬥</code> / <code>切磋</code></td><td><code>duel &lt;玩家|accept|forfeit&gt;</code></td><td>非安全區向玩家發起互動式切磋、接受挑戰或認輸</td></tr>
+        <tr data-cat="combat"><td><code>events</code> / <code>quests</code></td><td><code>事件</code> / <code>任務</code></td><td><code>events</code> / <code>quests</code></td><td>查看目前世界進行中事件情報（涵蓋荒野、城市建設、地下城與外域事件）與個人任務進度</td></tr>
+
+        <tr data-cat="social"><td><code>say</code> / <code>chat</code> / <code>me</code></td><td><code>'</code> / <code>說</code> / <code>世界</code> / <code>emote</code></td><td><code>say &lt;話&gt;</code> / <code>chat &lt;話&gt;</code></td><td>房間發言、全服世界頻道或發送動作表情</td></tr>
+        <tr data-cat="social"><td><code>give</code></td><td><code>贈與</code> / <code>給</code></td><td><code>give &lt;玩家&gt; &lt;物品|currency&gt; &lt;數量&gt;</code></td><td>贈與同房間玩家物品或貨幣</td></tr>
+        <tr data-cat="social"><td><code>party</code></td><td><code>隊伍</code> / <code>組隊</code></td><td><code>party &lt;create|invite|join|leave|info&gt; [玩家]</code></td><td>建立或管理隊伍，同房狩獵共享經驗與任務</td></tr>
+        <tr data-cat="social"><td><code>factions</code> / <code>joinfaction</code> / <code>leavefaction</code> / <code>fchat</code></td><td><code>派系</code> / <code>加入派系</code> / <code>離開派系</code> / <code>派系頻道</code></td><td><code>joinfaction &lt;order|wild|craft&gt;</code></td><td>查看、加入或退出派系並使用派系專屬頻道</td></tr>
+        <tr data-cat="social"><td><code>city</code></td><td><code>城市</code> / <code>建城</code></td><td><code>city &lt;info|list|create|tax|deposit|withdraw|ally|war&gt;</code></td><td>派系城市管理、金庫、稅率設定與外交互動</td></tr>
+        <tr data-cat="social"><td><code>fstorage</code> / <code>fdeposit</code> / <code>fwithdraw</code></td><td><code>派系倉庫</code> / <code>派系存入</code> / <code>派系取出</code></td><td><code>fdeposit &lt;物品&gt; &lt;數量&gt;</code></td><td>存取所屬派系城市的共享倉庫</td></tr>
+
+        <tr data-cat="gm"><td><code>passwd</code></td><td><code>改密碼</code> / <code>password</code></td><td><code>passwd &lt;舊密碼&gt; &lt;新密碼&gt;</code></td><td>變更目前角色的登入密碼</td></tr>
+        <tr data-cat="gm"><td><code>quit</code></td><td><code>exit</code> / <code>離開</code></td><td><code>quit</code></td><td>存檔並安全離線</td></tr>
+        <tr data-cat="gm"><td><code>gm</code></td><td>—</td><td><code>gm &lt;環境碼&gt;</code></td><td>驗證 <code>MUD_GM_CODE</code> 提升為 GM 權限</td></tr>
+        <tr data-cat="gm"><td><code>teleport</code> / <code>spawnitem</code> / <code>heal</code> / <code>resetpassword</code> / <code>saveall</code></td><td><code>tp</code></td><td>需 GM 權限</td><td>GM 傳送、產生物品、回滿血、重設他人密碼與強制存檔</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<script>
+(function(){
+  var searchEl = document.getElementById('cmdSearch');
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#cmdBody tr'));
+  var btns = Array.prototype.slice.call(document.querySelectorAll('#catBtns button'));
+  var activeCat = 'all';
+  function applyFilter(){
+    var q = (searchEl.value || '').trim().toLowerCase();
+    rows.forEach(function(tr){
+      var cat = tr.getAttribute('data-cat');
+      var catOk = activeCat === 'all' || cat === activeCat;
+      var textOk = !q || tr.textContent.toLowerCase().indexOf(q) !== -1;
+      tr.classList.toggle('hidden', !(catOk && textOk));
+    });
+  }
+  searchEl.addEventListener('input', applyFilter);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      activeCat = b.getAttribute('data-cat') || 'all';
+      btns.forEach(function(x){ x.classList.toggle('active', x === b); });
+      applyFilter();
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var dot = document.getElementById('liveDot');
+  var statusText = document.getElementById('liveStatusText');
+  var urlText = document.getElementById('liveUrlText');
+  var updatedAt = document.getElementById('liveUpdatedAt');
+  var playBtn = document.getElementById('livePlayBtn');
+  var topPlayBtn = document.getElementById('topPlayBtn');
+  var copyBtn = document.getElementById('liveCopyBtn');
+  var currentUrl = "";
+
+  function applyStatus(data){
+    var online = Boolean(data && data.online && data.url);
+    currentUrl = online ? String(data.url) : '';
+    if (dot) dot.classList.toggle('online', online);
+    if (statusText) statusText.textContent = online ? '伺服器線上中（Quick Tunnel）' : '伺服器目前離線中';
+    if (urlText) urlText.textContent = online ? currentUrl : '暫無公開連線網址，請稍後再重新整理查看';
+    if (updatedAt && data && data.updatedAt) updatedAt.textContent = '最後更新：' + data.updatedAt;
+    if (playBtn) {
+      playBtn.href = online ? currentUrl : '#';
+      playBtn.classList.toggle('disabled', !online);
+    }
+    if (topPlayBtn) {
+      topPlayBtn.href = online ? currentUrl : '#connection-status';
+      topPlayBtn.textContent = online ? '🎮 進入遊戲' : '⏸️ 目前離線';
+    }
+    if (copyBtn) copyBtn.disabled = !online;
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function(){
+      if (!currentUrl || !navigator.clipboard) return;
+      navigator.clipboard.writeText(currentUrl).then(function(){
+        copyBtn.textContent = '✅ 已複製';
+        setTimeout(function(){ copyBtn.textContent = '📋 複製網址'; }, 1500);
+      });
+    });
+  }
+
+  fetch('./status.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(data){ if (data) applyStatus(data); })
+    .catch(function(){});
+})();
+</script>
+</body>
+</html>
