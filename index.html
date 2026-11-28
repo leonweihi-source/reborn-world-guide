@@ -93,7 +93,7 @@ ul.clean li{margin:4px 0}
       <a href="#social">社交與城市</a>
       <a href="#dungeon">地下城故事</a>
       <a href="#commands">指令速查</a>
-      <a class="primary" id="topPlayBtn" href="#connection-status" target="_blank" rel="noopener">⏸️ 目前離線</a>
+      <a class="primary" id="topPlayBtn" href="https://compensation-kitchen-representatives-troops.trycloudflare.com" target="_blank" rel="noopener">🎮 進入遊戲</a>
     </nav>
   </div>
 </header>
@@ -104,13 +104,13 @@ ul.clean li{margin:4px 0}
     <p>融合生存建設、文明科技演進、玩家社交城邦與地下城探險的繁體中文 MUD 世界。無論透過瀏覽器客戶端或 Telnet TCP（埠 4000）皆可使用中英文指令遊玩。</p>
     <div class="liveConn" id="connection-status">
       <div class="liveConnMeta">
-        <div class="liveStatus"><span class="liveDot " id="liveDot"></span><span id="liveStatusText">伺服器目前離線中</span></div>
-        <div class="liveUrl" id="liveUrlText">伺服器目前尚未開放，請稍後再重新整理查看</div>
-        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-28T02:00:23+08:00</div>
+        <div class="liveStatus"><span class="liveDot online" id="liveDot"></span><span id="liveStatusText">伺服器線上中（Quick Tunnel）</span></div>
+        <div class="liveUrl" id="liveUrlText">點擊「🎮 立即進入遊戲」即可連線遊玩</div>
+        <div class="liveTime" id="liveUpdatedAt">最後更新：2026-11-28T13:38:50+08:00</div>
       </div>
       <div class="liveActions">
-        <a class="liveBtn primary disabled" id="livePlayBtn" href="#" target="_blank" rel="noopener">🎮 立即進入遊戲</a>
-        <button class="liveBtn" id="liveCopyBtn" type="button" disabled>📋 複製網址</button>
+        <a class="liveBtn primary " id="livePlayBtn" href="https://compensation-kitchen-representatives-troops.trycloudflare.com" target="_blank" rel="noopener">🎮 立即進入遊戲</a>
+        <button class="liveBtn" id="liveCopyBtn" type="button" >📋 複製網址</button>
       </div>
     </div>
   </section>
@@ -212,9 +212,9 @@ ul.clean li{margin:4px 0}
         <div class="card" style="margin-top:10px">
           <h4>🌱 季節農業與套裝共鳴</h4>
           <ul class="clean">
-            <li><strong>四季播種（<code>plant</code> / <code>water</code> / <code>harvest</code>）</strong>：向雜貨商購買春麥、烈陽瓜、金秋南瓜、霜雪蘿蔔種子於農田種植；當季種植成長加速 30%、澆水可再縮短剩餘時間 35% 並增加收成，成熟後可烹煮為四季增益料理。</li>
-            <li><strong>魔晶共鳴套裝（<code>crystal_set</code>）</strong>：魔晶劍＋魔晶甲＋魔晶鶴嘴鎬（2 件 ATK +4／DEF +3；3 件 ATK +8／DEF +6／AGI +3）。</li>
-            <li><strong>深淵行者套裝（<code>abyss_set</code>）</strong>：深淵戰刃＋深淵戰甲＋深淵羅盤（2 件 ATK +6／DEF +5／AGI +2；3 件 ATK +12／DEF +10／AGI +5）。</li>
+            <li><strong>四季播種與自動化（<code>plant</code> / <code>water</code> / <code>harvest</code>）</strong>：向雜貨商購買四季種子於農田種植；當季成長加速 30%、澆水縮短剩餘時間 35% 並增加收成。升級農田至 Lv.2／Lv.3 可解鎖 <strong>2／3 格田畦</strong>並加速成長 12%／24%；指派採集工（<code>worker gatherer</code>）可自動澆水並在成熟後自動收成存入倉庫！</li>
+            <li><strong>魔晶共鳴套裝（<code>crystal_set</code>，需 Lv.5）</strong>：魔晶劍＋魔晶甲＋魔晶鶴嘴鎬（2 件 ATK +4／DEF +3／AGI +1；3 件 ATK +8／DEF +6／AGI +3）。</li>
+            <li><strong>深淵行者套裝（<code>abyss_set</code>，需 Lv.8）</strong>：深淵戰刃＋深淵戰甲＋深淵羅盤（2 件 ATK +6／DEF +5／AGI +2；3 件 ATK +13／DEF +11／AGI +5）。</li>
           </ul>
         </div>
       </div>
@@ -249,13 +249,13 @@ ul.clean li{margin:4px 0}
             <tr><td><code>steel_armor</code> 精鐵護甲 [工業]</td><td>護甲：DEF +6</td><td>精鐵 x2 + 礦石 x2</td></tr>
             <tr><td><code>crystal_blade</code> 魔晶劍 [知識]</td><td>武器：ATK +13、AGI +2（魔晶套裝）</td><td>精鐵劍 x1 + 魔晶 x2（可直接以穿戴中的精鐵劍升級）</td></tr>
             <tr><td><code>crystal_armor</code> 魔晶甲 [知識]</td><td>護甲：DEF +10、AGI +1（魔晶套裝）</td><td>精鐵護甲 x1 + 魔晶 x2（可直接以穿戴中的精鐵護甲升級）</td></tr>
-            <tr><td><code>spring_bread</code> 春麥麵包</td><td>料理：HP +40、飽腹 +65、採集 +1（10分）</td><td>春麥 x2 + 糧食 x1</td></tr>
-            <tr><td><code>melon_sorbet</code> 烈陽冰沙</td><td>料理：HP +45、飽腹 +40、AGI +3（10分）</td><td>烈陽瓜 x1 + 草藥 x1</td></tr>
+            <tr><td><code>spring_bread</code> 春麥麵包</td><td>料理：HP +40、飽腹 +65、採集 +2（10分）</td><td>春麥 x1 + 糧食 x1</td></tr>
+            <tr><td><code>melon_sorbet</code> 烈陽冰沙</td><td>料理：HP +45、飽腹 +45、AGI +3（10分）</td><td>烈陽瓜 x1 + 草藥 x1</td></tr>
             <tr><td><code>pumpkin_soup</code> 金秋南瓜濃湯</td><td>料理：HP +50、飽腹 +85、ATK +4、DEF +2</td><td>金秋南瓜 x1 + 糧食 x1</td></tr>
-            <tr><td><code>frost_stew</code> 霜雪燉湯</td><td>料理：HP +60、飽腹 +60、DEF +5（10分）</td><td>霜雪蘿蔔 x1 + 草藥 x1</td></tr>
+            <tr><td><code>frost_stew</code> 霜雪燉湯</td><td>料理：HP +65、飽腹 +65、DEF +5（10分）</td><td>霜雪蘿蔔 x1 + 草藥 x1</td></tr>
             <tr><td><code>abyss_blade</code> 深淵戰刃 [知識]</td><td>武器：傷害 +14~24、AGI +3（深淵套裝）</td><td>魔晶劍 x1 + 深淵核心 x2</td></tr>
             <tr><td><code>abyss_armor</code> 深淵戰甲 [知識]</td><td>護甲：DEF +15、AGI +2（深淵套裝）</td><td>魔晶甲 x1 + 深淵核心 x2</td></tr>
-            <tr><td><code>abyss_compass</code> 深淵羅盤 [知識]</td><td>工具：採集 +3、DEF +3、AGI +3（深淵套裝）</td><td>魔晶 x2 + 深淵核心 x1</td></tr>
+            <tr><td><code>abyss_compass</code> 深淵羅盤 [知識]</td><td>工具：採集 +4、DEF +3、AGI +3（深淵套裝）</td><td>魔晶 x2 + 深淵核心 x1</td></tr>
           </tbody>
         </table>
       </div>
@@ -575,7 +575,7 @@ ul.clean li{margin:4px 0}
   var playBtn = document.getElementById('livePlayBtn');
   var topPlayBtn = document.getElementById('topPlayBtn');
   var copyBtn = document.getElementById('liveCopyBtn');
-  var currentUrl = "";
+  var currentUrl = "https://compensation-kitchen-representatives-troops.trycloudflare.com";
 
   function applyStatus(data){
     var online = Boolean(data && data.online && data.url);
